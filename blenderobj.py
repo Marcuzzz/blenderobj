@@ -2,7 +2,9 @@ import bpy
 import time
 import math
 import numpy as np
+import os
 
+user_home_dir = os.path.expanduser("~")
 # from bpy import data
 
 bl_info = {
@@ -84,14 +86,14 @@ def deleteall():
 
 def importObj():
     bprint("Running importObj...")
-    obj_file_path = "/Users/marcotten/Desktop/import.obj"
+    obj_file_path = os.path.join(user_home_dir, "import.obj")
     bpy.ops.import_scene.obj(filepath=obj_file_path)
 
 
 def exportObj():
     bprint("Running ExportObj...")
     # Define the file path of the OBJ file
-    obj_file_path = "/Users/marcotten/Desktop/export.obj"
+    obj_file_path = os.path.join(user_home_dir, "export.obj")
     obj = bpy.context.active_object
 
     # Export the selected object as an OBJ file
